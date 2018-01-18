@@ -5,6 +5,16 @@ VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}") = "CuNotifier", "CuNotifier\CuNotifier.njsproj", "{0BD74589-80A8-4BAA-B9BB-BCC714CF43BC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{9F5B8FEF-0007-4613-9A69-539C06D01E03}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "js", "js", "{ED7519AC-324C-4096-B126-E696593758FE}"
+	ProjectSection(SolutionItems) = preProject
+		CuNotifier\js\app.js = CuNotifier\js\app.js
+		CuNotifier\js\config.json = CuNotifier\js\config.json
+		CuNotifier\js\db.json = CuNotifier\js\db.json
+		CuNotifier\js\teleAPI.js = CuNotifier\js\teleAPI.js
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,6 +28,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{ED7519AC-324C-4096-B126-E696593758FE} = {9F5B8FEF-0007-4613-9A69-539C06D01E03}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4A92E277-2B7B-494C-82FC-1B9C8A787282}
