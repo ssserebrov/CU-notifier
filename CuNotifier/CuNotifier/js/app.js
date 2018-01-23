@@ -55,19 +55,32 @@ const main = async () => {
 
     for (const i in db) {
         for (const j in cards) {
-            if (db[i].name == cards[j].name) {
-                if (db[i].price !== cards[j].price) {
-                    msg += `${db[i].name}\nNew price!\n${db[i].price} -> ${cards[j].price}\n\n`;
-                    db[i].price = cards[j].price;
-                }
+            if (db[i].name == cards[j].name && JSON.stringify(db[i]) !== JSON.stringify(cards[j])) {
+
+                let cardMsg = `${db[i].name}\n`;
+
                 if (db[i].status1 !== cards[j].status1) {
-                    msg += `${db[i].name}\nNew availability status!\n${db[i].status1} -> ${cards[j].status1}\n\n`;
+                    cardMsg += teleAPI.bold(`${db[i].status1} -> ${cards[j].status1}\n`);
                     db[i].status1 = cards[j].status1;
+                } else {
+                    cardMsg += `${db[i].status1}\n`;
                 }
+
                 if (db[i].status2 !== cards[j].status2) {
-                    msg += `${db[i].name}\nNew delivery status!\n${db[i].status2} -> ${cards[j].status2}\n\n`;
+                    cardMsg += teleAPI.bold(`${db[i].status2} -> ${cards[j].status2}\n`);
                     db[i].status2 = cards[j].status2;
+                } else {
+                    cardMsg += `${db[i].status2}\n`;
                 }
+
+                if (db[i].price !== cards[j].price) {
+                    cardMsg += teleAPI.bold(`${db[i].price} -> ${cards[j].price}\n`);
+                    db[i].price = cards[j].price;
+                } else {
+                    cardMsg += `${db[i].price}\n`;
+                }
+
+                msg += `${cardMsg}\n\n`;
             }
         }
     }
@@ -90,7 +103,7 @@ const test = async () => {
 }
 
 
-var task = cron.schedule('*/5 * * * *', function () {
+var task = cron.schedule('*/10 * * * *', function () {
     main().catch(err => {
         console.log(err);
     });
